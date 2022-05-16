@@ -32,11 +32,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension Resolver: ResolverRegistering {
     public static func registerAllServices() {
-        register { BooksViewController() }
+        register {
+            BooksViewController()
+        }.implements(BooksView.self)
+        
         register { (_, args) in
             BooksPresenter(view: args())
-        }
-        .implements(BooksViewPresenter.self)
-        register { LordOfTheRingsApi() }
+        }.implements(BooksViewPresenter.self)
+        
+        register {
+            LordOfTheRingsApi()
+        }.implements(LordOfTheRingsApiInterface.self)
     }
 }

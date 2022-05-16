@@ -12,7 +12,7 @@ protocol BooksView: AnyObject {
     func onBooksRetrieved(names: [String])
 }
 
-class BooksViewController: UIViewController, Resolving {
+class BooksViewController: UIViewController {
     typealias Snapshot = NSDiffableDataSourceSnapshot<Section, String>
 
     enum Section {
@@ -27,7 +27,6 @@ class BooksViewController: UIViewController, Resolving {
     
     @LazyInjected var presenter: BooksViewPresenter
     private lazy var dataSource = makeDataSource()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()

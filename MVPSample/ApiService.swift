@@ -7,7 +7,11 @@
 
 import Foundation
 
-class LordOfTheRingsApi {
+protocol LordOfTheRingsApiInterface {
+    func getBooks() async throws -> BooksResponse
+}
+
+class LordOfTheRingsApi: LordOfTheRingsApiInterface {
     
     // MARK: - Constants
     let baseUrl: URL = URL(string: "https://the-one-api.dev/v2")!

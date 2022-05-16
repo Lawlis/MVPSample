@@ -15,8 +15,8 @@ protocol BooksViewPresenter: AnyObject {
 
 class BooksPresenter: BooksViewPresenter {
     
-    @MainActor weak var view: BooksView?
-    @Injected var apiService: LordOfTheRingsApi
+    weak var view: BooksView?
+    @Injected var apiService: LordOfTheRingsApiInterface
     
     required init(view: BooksView) {
         self.view = view
